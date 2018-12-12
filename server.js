@@ -17,7 +17,7 @@ app.post('/', function (req, res) {
     var trainNum = req.body.trainNum;
     var date = req.body.date;
     date = date.split('-').reverse().join('-');
-    var url = `https://api.railwayapi.com/v2/live/train/${trainNum}/date/${date}/apikey/YourAPI/`; //Src: https://railwayapi.com
+    var url = `https://api.railwayapi.com/v2/live/train/${trainNum}/date/${date}/apikey/yr47ojconu/`; //Src: https://railwayapi.com
     request(url, function (err, response, body) {
         if (err) {
             let data = {
