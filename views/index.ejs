@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" style="margin-top: 100px;">
+                <form action="/" method="POST">
+                    <div class="form-group">
+                        <input type="date" id="date" name="date" class="form-control" required style="display: none;">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="trainNum" class="form-control" placeholder="Enter train number..."
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success" value="find status">
+                    </div>
+                </form>
+                <div>
+                    <% if(data.trainPos!=null){%>
+                        <h2>Train Status</h2>
+                        <ul>
+                            <li><h5>Name: <%= data.trainPos.trainName %></h5></li>
+                            <li><h5>Current Station: <%= data.trainPos.currentStation %></h5></li>
+                            <li><h5>Position: <%= data.trainPos.position %></h5></li>
+                        </ul>
+                    <%}%>
+
+                    <% if(data.error!=null) {%>
+                        <h2><%= data.error %></h2>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('date').value=""+new Date().getFullYear()+"-"+(new Date().getMonth()+1)+"-"+new Date().getDate()+"";
+    </script>
+</body>
+
+</html>
